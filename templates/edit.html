@@ -1,0 +1,92 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.css' %} ">
+    <link rel="stylesheet" type="text/css" href="myStyle.css" >
+    <script src="{% static 'javascript/semantic.js' %}"></script>
+</head>
+<body>
+<div class="ui form segment" style="width: 80%; margin: 0 auto;">
+<form action="" method="post">
+    {% csrf_token %}
+
+
+  <div >
+    <div style="height: 40px;">
+        </div>
+    <h1 style="width: 20%; margin: 0 auto;">Hotel Information</h1>
+    <div style="height: 40px;">
+
+     </div>
+
+   <div class="field">
+    <label>{{ form.hotel_name.label }}</label>
+    {{ form.hotel_name }}
+
+  </div>
+
+    <div class="field">
+    <label>{{ form.address.label }}</label>
+    {{ form.address }}
+
+  </div>
+
+      <div class="field">
+    <label>{{ form.hotel_phone.label }}</label>
+    {{ form.hotel_phone }}
+
+  </div>
+
+<div class="field">
+    <label>{{ form.hotel_email.label }}</label>
+   {{ form.hotel_email }}
+
+  </div>
+
+       <div class="two fields">
+        <div class="field">
+            <label>{{ form.number_of_single_rooms.label }}</label>
+                {{ form.number_of_single_rooms }}
+
+        </div>
+
+
+        <div class="field">
+             <label>{{ form.single_cost.label }}</label>
+                 {{ form.single_cost }}
+
+         </div>
+       </div>
+
+
+
+       <div class="two fields">
+
+        <div class="field">
+            <label>{{ form.number_of_double_rooms.label }}</label>
+                {{ form.number_of_double_rooms }}
+
+        </div>
+
+        <div class="field">
+            <label>{{ form.double_cost.label }}</label>
+                {{ form.double_cost }}
+
+        </div>
+
+      </div>
+
+
+
+  </div>
+   <div style="height: 40px;">
+
+     </div>
+
+
+  <input class="ui submit button" type="submit">
+    </form>
+</div>
+
+</body>
+</html>

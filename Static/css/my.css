@@ -1,0 +1,37 @@
+*{
+    /*font-family: tahoma,B Nazanin;*/
+    font-family: B Nazanin,tahoma;
+    font-weight: normal;
+}
+h4, h1,h2,h3,h5,h6{
+    font-family: B Nazanin,tahoma;
+    /*font-style: italic;*/
+}
+#main{
+    width: 93%;
+    /*border: 2px dotted;*/
+    margin: 0 auto;
+}
+body{
+    /*background: #FCFCFC url(../images/my/bg.jpg) repeat;*/
+    background: #ededed;
+    /*background-size: cover ;*/
+    width: 1250px;
+}
+.ui.modal{
+    max-height: 90%;
+    overflow-y: auto;
+
+}
+#header{
+    font-size: 48px;
+    font-weight: bolder;
+    font-style: italic;
+    font-family: arial;
+}
+#user_action_header{
+    font-size: 36px;
+    font-weight: bolder;
+    font-style: italic;
+    font-family: arial;
+}

@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.css' %} ">
+    <link rel="stylesheet" type="text/css" href="myStyle.css" >
+    <script src="{% static 'javascript/semantic.js' %}"></script>
+</head>
+<body>
+<div class="ui form segment" style="width: 80%; margin: 0 auto;">
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="field">
+    <label>{{ form.activation_key.label }}</label>
+      {{ form.activation_key }}
+
+  </div>
+
+    <input class="ui submit button" type="submit">
+</form>
+
+{#  <div class="ui submit button">Login</div>#}
+</div>
+
+
+</body>
+</html>
