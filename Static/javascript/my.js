@@ -54,6 +54,7 @@ $('.checkbox_dis').click(function(){
 $('.ui.dropdown')
     .dropdown()
 ;
+console.log(“HELLO”);
 
 $('.ui.checkbox')
     .checkbox()
