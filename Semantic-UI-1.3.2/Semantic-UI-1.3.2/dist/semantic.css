@@ -11250,7 +11250,7 @@ a.ui.yellow.header:hover {
 --------------------*/
 
 .ui.inverted.header {
-  color: #ffffff;
+  color: #000000;
 }
 
 .ui.inverted.header .sub.header {
@@ -17046,25 +17046,25 @@ ol.ui.list ol,
 .ui.inverted.selection.list > .item,
 .ui.inverted.selection.list > .item {
   background: transparent;
-  color: rgba(255, 255, 255, 0.5);
+  color: #000000;
 }
 
 .ui.inverted.selection.list > .item:hover,
 .ui.inverted.selection.list > .item:hover {
   background: rgba(255, 255, 255, 0.02);
-  color: #ffffff;
+  color: #000000;
 }
 
 .ui.inverted.selection.list > .item:active,
 .ui.inverted.selection.list > .item:active {
   background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
+  color: #000000;
 }
 
 .ui.inverted.selection.list > .item.active,
 .ui.inverted.selection.list > .item.active {
   background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Celled / Divided Selection List */
@@ -23109,7 +23109,7 @@ th {
 /* Header */
 
 .ui.inverted.segment > .ui.header {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Label */
@@ -23504,13 +23504,13 @@ th {
 
 .ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #1b1c1d !important;
-  color: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 
 .ui.inverted.blue.segment {
   background-color: #3b83c0 !important;
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 .ui.inverted.green.segment {
@@ -24525,7 +24525,7 @@ a:hover {
 
 ::selection {
   background-color: rgba(255, 255, 160, 0.4);
-  color: rgba(0, 0, 0, 0.8);
+  color: #000000;
 }
 
 /*******************************
