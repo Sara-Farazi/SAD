@@ -15,12 +15,16 @@ html {
   display: none;
 }
 
+.inline.field>*{
+    opacity: 0;
+}
+
 /*--------------
     Masthead
 ---------------*/
 
 #home .masthead {
-  background-image: url(images/bg.jpg);
+  background-image: url(../images/bg.jpg);
   margin: 0em;
   padding: 5rem 0rem;
 }
@@ -132,4 +136,5 @@ html {
   #home .selection.list .right.floated {
     display: none;
   }
+
 }

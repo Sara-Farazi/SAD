@@ -37,7 +37,11 @@ def signin(request):
         form = LoginForm()  # An unbound form
    # hotels = Hotel.objects.all()
 
+<<<<<<< HEAD
     return render(request, 'login.html', {'form': form})
+=======
+    return render(request, 'home.html', {'form': form})
+>>>>>>> 67a998d2dca3776887942939b3efb7b28ffb47ec
     #return render(request, 'loginPae.html', {'form': form, 'hotels':hotels, 'user':user})
 
 def signout(request):

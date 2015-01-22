@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.3.3 (/usr/local/bin/python3.3m)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.5 virtualenv at ~/publications" project-jdk-type="Python SDK" />
+>>>>>>> 67a998d2dca3776887942939b3efb7b28ffb47ec
 </project>
 

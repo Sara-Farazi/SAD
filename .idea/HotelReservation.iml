@@ -11,7 +11,11 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="Python 3.3.3 (/usr/local/bin/python3.3m)" jdkType="Python SDK" />
+=======
+    <orderEntry type="jdk" jdkName="Python 2.7.5 virtualenv at ~/publications" jdkType="Python SDK" />
+>>>>>>> 67a998d2dca3776887942939b3efb7b28ffb47ec
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sass-stdlib" level="application" />
   </component>
