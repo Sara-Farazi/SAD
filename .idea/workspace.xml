@@ -26,7 +26,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HotelReservation/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.48969072" vertical-offset="0" max-vertical-offset="582">
+            <state line="24" column="13" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.6185567" vertical-offset="0" max-vertical-offset="582">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -148,7 +148,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/HotelReservation/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.48969072" vertical-offset="0" max-vertical-offset="582">
+        <state line="24" column="13" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.6185567" vertical-offset="0" max-vertical-offset="582">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
