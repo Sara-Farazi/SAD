@@ -26,7 +26,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HotelReservation/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.48969072" vertical-offset="0" max-vertical-offset="582">
+            <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.49053356" vertical-offset="0" max-vertical-offset="581">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -112,14 +112,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="23" width="1260" height="730" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2590759" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -148,7 +148,25 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/HotelReservation/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.48969072" vertical-offset="0" max-vertical-offset="582">
+        <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="510">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HotelReservation/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="510">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HotelReservation/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="66" selection-start="851" selection-end="851" vertical-scroll-proportion="0.49053356" vertical-offset="0" max-vertical-offset="581">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
