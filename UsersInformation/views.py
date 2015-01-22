@@ -30,14 +30,14 @@ def signin(request):
                 print("login page none nist")
                 login(request, user)
                 print("login shodam")
-                return HttpResponseRedirect("/UserProfile/")
+                return HttpResponseRedirect("/userprofile/")
             else:
                 form.errors[''] = 'wrong username or password'
     else:
         form = LoginForm()  # An unbound form
    # hotels = Hotel.objects.all()
 
-    return render(request, 'loginPage.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
     #return render(request, 'loginPae.html', {'form': form, 'hotels':hotels, 'user':user})
 
 def signout(request):
@@ -74,7 +74,7 @@ def Userregister(request):
         form = UserSignUpForm()
 
 
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'usersignup.html', {'form': form})
 
 
 def Hotelregister(request):
@@ -136,7 +136,7 @@ def Hotelregister(request):
     else:
         form = HotelSignUpForm()
 
-    return render(request, 'Hotelsignup.html', {'form': form})
+    return render(request, 'hotelsignup.html', {'form': form})
 
 
 def UserEdit(request):
@@ -146,7 +146,7 @@ def UserEdit(request):
         form = UserSignUpForm(request.POST,instance=user)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/UserProfile/")
+            return HttpResponseRedirect("/userprofile/")
         else:
             print(form)
 
@@ -159,7 +159,7 @@ def UserEdit(request):
     phone=user.phone
     email=user.email
 
-    return render(request, 'userEdit.html', {'form': form, 'name':name,'family':family,'username':username,'phone':phone,'email':email})
+    return render(request, 'useredit.html', {'form': form, 'name':name,'family':family,'username':username,'phone':phone,'email':email})
 
 
 @login_required(redirect_field_name='my_redirect_field')
@@ -174,7 +174,7 @@ def hotelEdit(request,hotel_id):
         form = HotelEdit(request.POST,instance=hotel)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/UserProfile/")
+            return HttpResponseRedirect("/userprofile/")
         else:
             print(form)
 
@@ -190,7 +190,7 @@ def hotelEdit(request,hotel_id):
     double_cost=hotelroom2.cost
 
     if user.is_owner == True and user.id == hotel.hotel_owner.id:
-        return render(request, 'edit.html', {'form': form, 'name':name,'address':address,'email':email,'phone':phone,'owner':owner,'single_cost':single_cost,'double_cost':double_cost})
+        return render(request, 'hoteledit.html', {'form': form, 'name':name,'address':address,'email':email,'phone':phone,'owner':owner,'single_cost':single_cost,'double_cost':double_cost})
 
     else:
         return render(request, 'error.html', {'form': form, 'username': user.username, 'password':user.password})
@@ -198,19 +198,19 @@ def hotelEdit(request,hotel_id):
 def my_hotel(request):
     user = MyUser.objects.get(id=request.user.id)
     hotels = Hotel.objects.filter(hotel_owner=user)
-    return render(request, 'HotelEdit.html', {'hotels': hotels})
+    return render(request, 'hedit.html', {'hotels': hotels})
 
 def HotelProfile(request):
     user = MyUser.objects.get(pk=request.user.pk)
     hotels = Hotel.objects.filter(hotel_owner=user)
     id = request.user.id
-    return render(request, 'HotelProfile.html', {'user': user,'hotels':hotels, 'id':id})
+    return render(request, 'hotelprofile.html', {'user': user,'hotels':hotels, 'id':id})
 
 
 def UserProfile(request):
     user = MyUser.objects.get(pk=request.user.pk)
     hotels = Hotel.objects.filter(hotel_owner=user)
-    return render(request, 'UserProfile.html', {'user': user,'hotels':hotels})
+    return render(request, 'userprofile.html', {'user': user,'hotels':hotels})
 
 def activation(request):
     if request.method == 'POST':
@@ -227,7 +227,7 @@ def activation(request):
             user.is_active=True
             user.save()
 
-            return HttpResponseRedirect("/loginPage/")
+            return HttpResponseRedirect("/login/")
 
     else:
         form = ActivationForm()
