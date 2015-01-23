@@ -1,0 +1,62 @@
+{% extends 'base/main.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="ui form segment" style="width: 80%; margin: 0 auto;">
+    <form action="/usersign/" method="post">
+        {% csrf_token %}
+
+        <div class="two fields">
+            <div class="field" style="direction: rtl">
+                <label>نام خانوداگی</label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="field" style="direction: rtl">
+                <label>نام</label>
+                {{ form.first_name }}
+
+            </div>
+        </div>
+
+
+        <div class="field" style="direction: rtl">
+            <label>نام کاربری</label>
+            {{ form.username }}
+        </div>
+
+        <div class="field" style="direction: rtl">
+            <label>رمز عبور</label>
+            {{ form.password }}
+        </div>
+
+
+        <div class="field" style="direction: rtl">
+            <label>تکرار رمز</label>
+            {{ form.verified_pass}}
+        </div>
+
+        <div class="field">
+            <label>{{ form.address.label }}</label>
+            {{ form.address }}
+        </div>
+
+        <div class="field" style="direction: rtl">
+           <label>تلفن</label>
+           {{ form.phone }}
+        </div>
+
+        <div class="field" style="direction: rtl">
+            <label>ایمیل</label>
+            {{ form.email }}
+        </div>
+
+        <input class="ui button" value="ثبت نام" type="submit" style="float: right">
+
+    </form>
+</div>
+
+
+{% endblock %}

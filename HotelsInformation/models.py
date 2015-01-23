@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser, UserManager
 
@@ -5,6 +7,11 @@ from django.contrib.auth.models import AbstractBaseUser, AbstractUser, UserManag
 TYPE = (
     (1, 'single'),
     (2, 'double'),
+)
+COMMENT_STATUS = (
+    (0, ('Pending')),
+    (1, ('Accept')),
+    (2, ('Reject')),
 )
 
 
@@ -24,7 +31,7 @@ class Hotel(models.Model):
     hotel_phone = models.CharField(max_length=30)
     hotel_email = models.CharField(max_length=30)
     hotel_owner = models.ForeignKey(MyUser)
-    hotel_rate=models.IntegerField(max_length=1,null=True)
+    hotel_rate=models.IntegerField(max_length=1, null=True)
 
 
 class HotelRoom(models.Model):
@@ -34,9 +41,15 @@ class HotelRoom(models.Model):
     type = models.CharField(choices=TYPE, max_length=2)
 
 
+class Comment(models.Model):
+    name = models.CharField(u'نام', max_length=200)
+    email = models.EmailField(u'ایمیل')
+    date = models.DateTimeField(u'تاریخ :', auto_now=True)
+    body = models.TextField(u'')
+    hotel = models.ForeignKey(Hotel)
+    user = models.ForeignKey(MyUser, related_name="comments", null=True, blank=True)
+    status = models.IntegerField(choices=COMMENT_STATUS, max_length=10, default=0)
 
-
-
-
-
+    def __str__(self):
+        return self.name
 

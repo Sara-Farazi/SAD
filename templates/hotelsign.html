@@ -1,0 +1,131 @@
+{% extends 'base/main.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="ui form segment" style="width: 80%; margin: 0 auto;">
+<form action="" method="post">
+    {% csrf_token %}
+  <div class="two fields">
+    <div class="field" style="direction: rtl">
+      <label>نام خانوادگی</label>
+        {{ form.last_name }}
+
+    </div>
+
+    <div class="field" style="direction: rtl">
+      <label>نام</label>
+      {{ form.first_name }}
+    </div>
+  </div>
+
+
+  <div class="field" style="direction: rtl">
+    <label>نام کاربری</label>
+    {{ form.username }}
+  </div>
+
+  <div class="field" style="direction: rtl">
+    <label>رمز عبور</label>
+    {{ form.password }}
+  </div>
+
+
+    <div class="field" style="direction: rtl">
+    <label>تکرار رمز</label>
+    {{ form.verified_pass }}
+  </div>
+
+
+
+    <div class="field" style="direction: rtl">
+    <label>تلفن</label>
+    {{ form.phone }}
+  </div>
+
+    <div class="field" style="direction: rtl">
+    <label>ایمیل</label>
+    {{ form.email }}
+  </div>
+
+  <div >
+    <div style="height: 40px;">
+        </div>
+    <h1 style="width: 20%; margin: 0 auto;">اطلاعات هتل</h1>
+    <div style="height: 40px;">
+
+     </div>
+
+   <div class="field" style="direction: rtl">
+    <label>نام هتل</label>
+    {{ form.hotel_name }}
+
+  </div>
+
+    <div class="field" style="direction: rtl">
+    <label>آدرس هتل</label>
+    {{ form.address }}
+
+  </div>
+
+      <div class="field" style="direction: rtl">
+    <label>تلفن هتل</label>
+    {{ form.hotel_phone }}
+
+  </div>
+
+<div class="field" style="direction: rtl">
+    <label>ایمیل هتل</label>
+   {{ form.hotel_email }}
+
+  </div>
+
+      <div class="two fields">
+        <div class="field" style="direction: rtl">
+            <label>قیمت</label>
+                 {{ form.single_cost }}
+
+        </div>
+
+
+        <div class="field" style="direction: rtl">
+            <label>تعداد اتاق های یک تخته</label>
+                {{ form.number_of_single_rooms }}
+
+
+         </div>
+       </div>
+
+
+
+       <div class="two fields">
+
+        <div class="field" style="direction: rtl">
+            <label>قیمت</label>
+                {{ form.double_cost }}
+
+        </div>
+
+        <div class="field" style="direction: rtl">
+             <label>تعداد اتاق های دو تخته</label>
+                {{ form.number_of_double_rooms }}
+
+
+        </div>
+
+      </div>
+
+  </div>
+   <div style="height: 40px;">
+
+     </div>
+
+
+  <input class="ui button"  value="ثبت نام" type="submit" style="float: right">
+    </form>
+</div>
+
+
+
+{% endblock %}

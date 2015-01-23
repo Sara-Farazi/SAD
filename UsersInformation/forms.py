@@ -60,3 +60,10 @@ class HotelEdit(forms.ModelForm):
 class ActivationForm(forms.Form):
     activation_key = forms.CharField(max_length=200, required=True)
 
+
+class Information(forms.Form):
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    user_name = forms.CharField()
+    email = forms.CharField()
+    phone = forms.IntegerField()

@@ -8,6 +8,7 @@ from setuptools.compat import unicode
 from HotelsInformation.models import MyUser, Hotel, HotelRoom
 from UsersInformation.forms import LoginForm, UserSignUpForm, HotelSignUpForm, HotelEdit, ActivationForm
 from django.core.mail import send_mail
+from UsersInformation.forms import Information
 from django.contrib.auth.decorators import login_required
 __author__ = 'Sara-PC'
 
@@ -37,11 +38,7 @@ def signin(request):
         form = LoginForm()  # An unbound form
    # hotels = Hotel.objects.all()
 
-<<<<<<< HEAD
     return render(request, 'login.html', {'form': form})
-=======
-    return render(request, 'home.html', {'form': form})
->>>>>>> 67a998d2dca3776887942939b3efb7b28ffb47ec
     #return render(request, 'loginPae.html', {'form': form, 'hotels':hotels, 'user':user})
 
 def signout(request):
@@ -78,7 +75,7 @@ def Userregister(request):
         form = UserSignUpForm()
 
 
-    return render(request, 'usersignup.html', {'form': form})
+    return render(request, 'usersign.html', {'form': form})
 
 
 def Hotelregister(request):
@@ -140,7 +137,7 @@ def Hotelregister(request):
     else:
         form = HotelSignUpForm()
 
-    return render(request, 'hotelsignup.html', {'form': form})
+    return render(request, 'hotelsign.html', {'form': form})
 
 
 def UserEdit(request):
@@ -213,8 +210,22 @@ def HotelProfile(request):
 
 def UserProfile(request):
     user = MyUser.objects.get(pk=request.user.pk)
+    info_form = Information(request.POST)
     hotels = Hotel.objects.filter(hotel_owner=user)
-    return render(request, 'userprofile.html', {'user': user,'hotels':hotels})
+    if request.method == 'POST':
+        if info_form.is_valid():
+            user.first_name = info_form.cleaned_data['first_name']
+            user.last_name = info_form.cleaned_data['last_name']
+            user.username = info_form.cleaned_data['user_name']
+            user.email = info_form.cleaned_data['email']
+            user.phone = info_form.cleaned_data['phone']
+            user.save()
+
+        else:
+            print("Not Valid Dude!")
+            info_form = Information()
+
+    return render(request, 'userprofile.html', {'user': user, 'hotels': hotels, 'form':info_form})
 
 def activation(request):
     if request.method == 'POST':
@@ -231,10 +242,58 @@ def activation(request):
             user.is_active=True
             user.save()
 
-            return HttpResponseRedirect("/login/")
+            return HttpResponseRedirect("/home/")
 
     else:
         form = ActivationForm()
 
     #code = user.activation_key
     return render(request, 'activation.html', {'form':form})
+
+
+
+def AddHotel(request):
+    if request.method == 'POST':
+        form = HotelSignUpForm(request.POST)
+        if form.is_valid():
+            print("HEY")
+            user = MyUser.get(id = request.user.pk)
+            hotel = Hotel()
+            hotel.address = form.cleaned_data['address']
+            hotel.hotel_email = form.cleaned_data['hotel_email']
+            hotel.hotel_name = form.cleaned_data['hotel_name']
+            hotel.hotel_phone = form.cleaned_data['hotel_phone']
+            hotel.hotel_owner = user
+            hotel.save()
+
+
+            single_room = form.cleaned_data['number_of_single_rooms']
+            double_room = form.cleaned_data['number_of_double_rooms']
+            print("ghable for")
+            for i in range(0,single_room):
+
+                hotelroom1=HotelRoom()
+                cost=form.cleaned_data['single_cost']
+                hotelroom1.cost=cost
+                hotelroom1.roomNumber=hotel.id + i
+                hotelroom1.hotel=hotel
+                hotelroom1.type=1
+                hotelroom1.save()
+                print("bade save hotelroom")
+
+
+
+
+            for i in range(0,double_room):
+                hotelroom2=HotelRoom()
+                cost=form.cleaned_data['double_cost']
+                hotelroom2.cost=cost
+                hotelroom2.roomNumber=hotel.id+i
+                hotelroom2.hotel=hotel
+                hotelroom2.type=2
+                hotelroom2.save()
+            return HttpResponseRedirect("/userprofile/")
+    else:
+        form = HotelSignUpForm()
+
+    return render(request, 'addhotel.html', {'form': form})

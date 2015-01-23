@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
-  <script src="{% static 'javascript/jquery-2.1.0.min.js' %}"></script>
+  <script src="{% static 'javascript/jquery-2.1.0.min.js'%}"></script>
   <script src="{% static 'javascript/semantic.js' %}"></script>
   <script src="{% static 'javascript/homepage.js' %}"></script>
 
@@ -24,14 +24,29 @@
     <div class="ui page grid">
       <div class="column">
         <div class="ui menu">
-          <a class="item">
+          <a class="item" href="/home/">
             <i class="home icon"></i>
               خانه
           </a>
+             {% if user.is_authenticated %}
+              <div class="ui dropdown item">
+              {{user.username}} <i class="dropdown icon"></i>
+              <div class="menu">
+                <a href="/userprofile/" class="item">صفحه‌ی شخصی</a>
+                <a class="item">تنظیمات</a>
+                <a href="/logout/" class="item">خروج</a>
+              </div>
+            </div>
+            <!--<a href="/userprofile/" class="item">-->
+<!--{{user.username}}-->
+               <!--<i class="user icon"></i>-->
+            <!--</a>-->
+                {% else %}
           <a class="item" id="login">
             <i class="user icon"></i>
               ورود
           </a>
+            {% endif %}
 
           <div class="right menu">
             <div class="item">
@@ -54,43 +69,43 @@
       <div class="ten wide column">
         <div class="ui three column center aligned stackable grid">
           <div class="column">
-            <h5 class="ui inverted header">Courses</h5>
+            <h5 class="ui inverted header">ایمیل</h5>
             <div class="ui inverted link list">
-              <a class="item">Registration</a>
-              <a class="item">Course Calendar</a>
-              <a class="item">Professors</a>
+              <a class="item">simorgh9394@gmail.com</a>
+              <a class="item"></a>
+              <a class="item"></a>
             </div>
           </div>
           <div class="column">
-            <h5 class="ui inverted header">Library</h5>
+            <h5 class="ui inverted header">تلفن</h5>
             <div class="ui inverted link list">
-              <a class="item">A-Z</a>
-              <a class="item">Most Popular</a>
-              <a class="item">Recently Changed</a>
+              <a class="item">۰۲۱ ۶۶۸۸۴۵۷۶</a>
+              <a class="item"></a>
+              <a class="item"></a>
             </div>
           </div>
           <div class="column">
-            <h5 class="ui inverted header">Community</h5>
+            <h5 class="ui inverted header">آدرس</h5>
             <div class="ui inverted link list">
-              <a class="item">BBS</a>
-              <a class="item">Careers</a>
-              <a class="item">Privacy Policy</a>
+              <a class="item">تهران ، خیابان آزادی، دانشگاه صنعتی شریف، دانشکده کامپیوتر</a>
+              <a class="item"></a>
+              <a class="item"></a>
             </div>
           </div>
         </div>
       </div>
       <div class="six wide column">
-        <h5 class="ui inverted header">Contact Us</h5>
+        <h5 class="ui inverted header">درباره ما</h5>
         <addr>
-          237 Catberry Road <br>
-          Milton Keynes, London <br>
+          شرکت نرم افزاری سغف با طراحی سامانه سیمرغ شالوده‌ای مجتمع و یکپارچه از همه‌ی هتلهای گردشگری کشور فراهم آورده است. <br>
+
         </addr>
-        <p>(404) 867-5309</p>
+
       </div>
     </div>
   </div>
 
-    <div class="ui modal">
+    <div class="ui modal" id="sign-in">
       <i class="close icon"></i>
       <div class="header" style="text-align: center;">
         ورود به حساب کاربری
@@ -99,33 +114,24 @@
         <div class="ui medium image">
           <img class="ui small image" src="{% static 'images/my/login.png' %}">
         </div>
-        <div class="description ui form ">
-            <form method="post" action="/loginPage/">
-                {% csrf_token %}
-            <label style="float:right;">نام کاربری</label>
-          <input name="username" type="text">
-            <label style="float:right;">رمز عبور</label>
-          <input name="password" type="password">
-          <div class="divider"></div>
-          <input class="ui teal submit button" value="ورود" type="submit" style="float:right;">
-            </form>
-      </div>
-{#      <div class="actions">#}
-{#        <div class="ui black button">#}
-{#          Nope#}
-{#        </div>#}
-{#        <div class="ui positive right labeled icon button">#}
-{#          Yep, that's me#}
-{#          <i class="checkmark icon"></i>#}
-{#        </div>#}
-{#      </div>#}
+          <form method="post" action="/login/">
+            <div class="description ui form ">
+                    {% csrf_token %}
+                <label style="float:right;">نام کاربری</label>
+              <input name="username" type="text">
+                <label style="float:right;">رمز عبور</label>
+              <input name="password" type="password">
+              <div class="divider"></div>
+              <input class="ui teal button" value="ورود" type="submit" style="float:right;">
+            </div>
+          </form>
     </div>
      </div>
 </body>
 
 <script>
 $("#login").click(function(){
-    $('.modal')
+    $('#sign-in')
   .modal('show')
 ;
 })
@@ -136,7 +142,10 @@ $('.ui.checkbox')
 $('.ui.rating')
   .rating()
 ;
+$('.ui.dropdown')
+  .dropdown()
+;
+</script>
 {% block script %}
 {% endblock %}
-</script>
 </html>
