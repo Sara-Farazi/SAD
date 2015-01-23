@@ -1,0 +1,105 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="ui vertical feature segment">
+    <div class="ui centered page grid">
+      <div class="fourteen wide column">
+        <form class="ui form">
+
+          <h3 class="ui dividing header" style="float:right;" >
+رزرو اتاق
+          </h3>
+            <div class="three fields">
+
+
+<div class="field">
+
+                      <div class="ui selection dropdown">
+                        <input type="hidden" name="rooms">
+                        <div class="default text" style="float: right;">تعداد اتاق</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu number-of-sth">
+                          <div class="item" data-value="1">۱</div>
+                          <div class="item" data-value="2">۲</div>
+                          <div class="item" data-value="3">۳</div>
+                          <div class="item" data-value="4">۴</div>
+                          <div class="item" data-value="5">۵</div>
+                        </div>
+                        </div>
+    </div>
+
+                <div class="field">
+                    <div class="ui checkbox">
+                      <label>اتاق یک تخته</label>
+                      <input type="checkbox">
+
+                    </div>
+                 </div>
+
+
+                 <div class="field">
+                <div class="ui action input">
+  <input type="text" value="">
+  <div class="ui teal right labeled icon button">
+      نام کاربری
+  </div>
+</div>
+                    </div>
+
+          </div>
+
+             <div class="three fields">
+
+
+
+<div class="field">
+                
+                      <div class="ui selection dropdown">
+                        <input type="hidden" name="rooms">
+                        <div class="default text" style="float: right;">تعداد اتاق</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu number-of-sth">
+                          <div class="item" data-value="1">۱</div>
+                          <div class="item" data-value="2">۲</div>
+                          <div class="item" data-value="3">۳</div>
+                          <div class="item" data-value="4">۴</div>
+                          <div class="item" data-value="5">۵</div>
+                        </div>
+                        </div>
+    </div>
+
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <label>اتاق دو تخته</label>
+                      <input type="checkbox">
+
+                    </div>
+                 </div>
+
+
+                 <div class="field">
+                 <div class="ui action input">
+  <input type="text" value="">
+  <div class="ui teal right labeled icon button">
+      رمز عبور
+  </div>
+
+</div>
+    </div>
+
+
+          </div>
+
+            <div class="ui submit teal button">رزرو</div>
+            </form>
+          </div>
+        </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
