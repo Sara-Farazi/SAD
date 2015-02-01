@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.css' %} ">
+    <link rel="stylesheet" type="text/css" href="myStyle.css" >
+    <script src="{% static 'javascript/semantic.js' %}"></script>
+</head>
+<body>
+<div class="ui form segment" style="width: 80%; margin: 0 auto;">
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="field">
+    <label>{{ form.username.label }}</label>
+      {{ form.username }}
+
+  </div>
+  <div class="field">
+    <label>{{ form.password.label }}</label>
+    {{ form.password }}
+  </div>
+    <input class="ui submit button" type="submit">
+</form>
+
+{#  <div class="ui submit button">Login</div>#}
+</div>
+{% for hotel in hotels %}
+    {{ hotel.hotel_name }}<br>
+{% endfor %}
+
+</body>
+</html>

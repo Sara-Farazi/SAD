@@ -1,0 +1,22 @@
+{% extends 'base/main.html' %}
+{% block content%}
+     <table class="ui table" style="margin-left: 100px; margin-right: 100px; width: 1200px;">
+  <thead>
+    <tr>
+        <th>نوع اتاق</th>
+      <th>تعداد اتاقهای رزرو شده</th>
+      <th>درآمد حاصل</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for res in reserve1 %}
+
+    <tr>
+      <td>{{ res.type }}</td>
+      <td>{{ res.dcount }}</td>
+      <td>{{ res.ccount }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

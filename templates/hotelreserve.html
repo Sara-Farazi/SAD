@@ -1,0 +1,86 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="ui vertical feature segment">
+    <div class="ui centered page grid">
+      <div class="fourteen wide column">
+        <form class="ui form" method="post" action="/bank/{{ hotel.id }}/">
+                {% csrf_token %}
+
+          <h3 class="ui dividing header" style="float:right;" >
+رزرو اتاق
+          </h3>
+            <div class="three fields">
+
+
+
+
+                 <div class="field">
+                <div class="ui action input">
+  <input type="text" value="" name="username">
+  <div class="ui teal right labeled icon button">
+      نام کاربری
+  </div>
+</div>
+                    </div>
+
+          </div>
+
+             <div class="three fields">
+
+ {% for room in rooms %}
+
+<div class="field">
+                
+                      <div class="ui selection dropdown">
+                        <input type="hidden" name="numberOfRooms">
+                        <div class="default text" style="float: right;">تعداد اتاق</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu number-of-sth">
+                          <div class="item" data-value="1">۱</div>
+                          <div class="item" data-value="2">۲</div>
+                          <div class="item" data-value="3">۳</div>
+                          <div class="item" data-value="4">۴</div>
+                          <div class="item" data-value="5">۵</div>
+                        </div>
+                        </div>
+    </div>
+
+
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <label> {{ room.type }} </label>
+                      <input type="checkbox" name="roomType" value="{{ room.type }}">
+
+                    </div>
+                 </div>
+
+                 {% endfor %}
+
+
+                 <div class="field">
+                 <div class="ui action input">
+  <input type="text" type="password" name="password">
+  <div class="ui teal right labeled icon button">
+      رمز عبور
+  </div>
+
+</div>
+    </div>
+
+
+          </div>
+
+           <input class="ui teal button"  value="رزرو" type="submit" style="float: right">
+            </form>
+          </div>
+        </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

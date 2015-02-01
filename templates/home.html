@@ -1,0 +1,221 @@
+{% extends 'base/main.html' %}
+{% block intro %}
+    <div class="ui hidden transition information">
+          <h1 class="ui inverted header" style="text-align: right">
+سامانه‌ی سیمرغ
+          </h1>
+           <h2 class="ui inverted header" style="text-align: right">
+          <p> سامانه ی سیمرغ بهترین سامانه است</p>
+           </h2>
+
+
+           <a href="http://127.0.0.1:8000/hotelsign/">
+            <div class="large basic inverted animated fade ui button" >
+
+                <div class="visible content">ثبت نام هتلدار</div>
+                <div class="hidden content">همین حالا</div>
+
+           </div>
+           </a>
+
+
+         <a href="http://127.0.0.1:8000/usersign/">
+          <div class="large basic inverted animated fade ui button" >
+
+            <div class="visible content">ثبت نام مسافر</div>
+            <div class="hidden content">همین حالا</div>
+
+          </div>
+         </a>
+
+
+        </div>
+{% endblock %}
+{% block content %}
+
+<div class="ui vertical feature segment">
+    <div class="ui centered page grid">
+      <div class="fourteen wide column">
+            <form id="search-form" class="ui form" method="post" action="/searchresults/">
+                    {% csrf_token %}
+          <h3 class="ui dividing header" style="float:right;">
+              جستوجو هتل
+          </h3>
+            <div class="two fields">
+            <div class="field">
+            </div>
+            <div class="field">
+              <label style="visibility: hidden;">State</label>
+              <select name="ostan" class="ui search right dropdown">
+                <option value="">استان</option>
+
+                <option value="30">آذربایجان شرقی</option>
+                <option value="0">آذربایجان غربی</option>
+                <option value="1"> اردبیل</option>
+                <option value="2">اصفهان</option>
+                <option value="3">البرز</option>
+                <option value="4">ایلام</option>
+                <option value="5">بوشهر</option>
+                <option value="6">تهران</option>
+                <option value="7">چهار محال و بختیاری</option>
+                <option value="8">خراسان جنوبی</option>
+                <option value="9">خراسان رضوی</option>
+                <option value="10">خراسان شمالی</option>
+                <option value="11">خوزستان</option>
+                <option value="12">زنجان</option>
+                <option value="13">سمنان</option>
+                <option value="14">سیستان و بلوچستان  </option>
+                <option value="15">فارس</option>
+                <option value="16">قزوین</option>
+                <option value="17"> قم</option>
+                <option value="18"> کردستان</option>
+                <option value="19"> کرمان</option>
+                <option value="20"> کرمانشاه</option>
+                <option value="21"> کهگیلویه و بویراحمد</option>
+                <option value="22">گلستان</option>
+                <option value="23"> گیلان</option>
+                <option value="24">لرستان</option>
+                <option value="25">مازندران</option>
+                <option value="26"> مرکزی</option>
+                <option value="27">هرمزگان</option>
+                <option value="28">همدان</option>
+                <option value="29">یزد</option>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="two fields">
+
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <label style="visibility: hidden;">Rooms</label>
+                      <div class="ui selection  dropdown">
+                        <input type="hidden" name="number_people">
+                        <div class="default text" style="float:right;">تعداد افراد</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu number-of-sth">
+                          <div class="item" data-value="1">۱</div>
+                          <div class="item" data-value="2">۲</div>
+                          <div class="item" data-value="3">۳</div>
+                          <div class="item" data-value="4">۴</div>
+                          <div class="item" data-value="5">۵</div>
+                          <div class="item" data-value="6">۶</div>
+                          <div class="item" data-value="7">۷</div>
+                          <div class="item" data-value="8">۸</div>
+                          <div class="item" data-value="9">۹+</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="two field">
+                        <label style="visibility: hidden;">Rooms</label>
+                      <div class="ui selection dropdown">
+                        <input type="hidden" name="number_room">
+                        <div class="default text" style="float: right;">تعداد اتاق</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu number-of-sth">
+                          <div class="item" data-value="1">۱</div>
+                          <div class="item" data-value="2">۲</div>
+                          <div class="item" data-value="3">۳</div>
+                          <div class="item" data-value="4">۴</div>
+                          <div class="item" data-value="5">۵</div>
+                          <div class="item" data-value="6">۶</div>
+                          <div class="item" data-value="7">۷</div>
+                          <div class="item" data-value="8">۸</div>
+                          <div class="item" data-value="9">۹+</div>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            </div>
+            <div class="field">
+              <div class="two fields">
+                <div class="field">
+                    <label style="visibility: hidden">تا</label>
+                  <input type="date" name="check_out" placeholder="تاریخ خروج" style="direction: rtl;">
+                </div>
+                <div class="field">
+                    <label style="visibility: hidden;">از</label>
+                  <input type="date" name="check_in" placeholder="تاریخ ورود" style="direction: rtl;">
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="eight fields">
+                <div class="inline opacity field">
+                    <div class="ui small star rating" id="star_hotel" data-rating="3" data-max-rating="5"></div>
+                    <label>ستاره</label>
+                 </div>
+                <div class="inline opacity field">
+                    <div class="ui checkbox">
+                      <label>استخر و سونا</label>
+                      <input type="checkbox" name="swimming_pool">
+
+                    </div>
+                 </div>
+                <div class="inline opacity field">
+                    <div class="ui checkbox">
+                      <label>اینترنت</label>
+                      <input type="checkbox" name="internet">
+
+                    </div>
+                 </div>
+               <div class="inline opacity field">
+                    <div class="ui checkbox">
+                      <label>صبحانه</label>
+                      <input type="checkbox" name="breakfast">
+
+                    </div>
+                 </div>
+                 <div class="inline opacity field">
+                    <div class="ui checkbox">
+                      <label>ناهار</label>
+                      <input type="checkbox" name="lunch">
+
+                    </div>
+                 </div>
+                <div class="inline opacity field">
+                    <div class="ui checkbox">
+                      <label>سالن ورزش</label>
+                      <input type="checkbox" name="gym">
+
+                    </div>
+                 </div>
+                 <div class="inline opacity field">
+                    <div class="ui checkbox">
+                      <label>سالن همایش</label>
+                      <input type="checkbox" name="conference_room">
+
+                    </div>
+                 </div>
+                <div class="field" id="plus">
+                    <i class="green plus icon" style="float: right;"></i>
+                </div>
+            </div>
+          <input class="ui teal button" id="jostoju" type="button" value="جست و جو">
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $("#plus").click(function(){
+        $(".inline.field>*").animate({ opacity: 1 });
+    });
+
+    $("#jostoju").click(function(){
+        var star = $("#star_hotel").rating('get rating');
+        var input = $("<input name='hotel_rate'>").attr("type", "hidden").val(star);
+        $('#search-form').append($(input));
+        $('#search-form').submit();
+
+    });
+
+
+</script>
+
+{% endblock %}

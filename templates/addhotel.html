@@ -1,0 +1,287 @@
+{% extends 'base/main.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div class="ui top attached tabular menu" style="direction: rtl">
+    <a class="active item" data-tab="first">اطلاعات هتل</a>
+    <a id="room-info" class="item" data-tab="second">اطلاعات اتاق ها </a>
+
+  </div>
+<div class="ui bottom attached active tab segment" data-tab="first" style="direction: rtl; height: 360px;">
+
+    <form class="ui form">
+        <div class="fields">
+            <div class="three wide field" style="visibility: hidden">
+                <label style="visibility: hidden;">ss</label>
+             <div class="ui teal button">
+                 اضافه کردن
+             </div>
+            </div>
+
+            <div class="five wide field">
+              <label>آدرس هتل</label>
+              <input id="hotel-addr" type="text" >
+            </div>
+            <div class="two wide field" style="visibility: hidden;">
+              <label>متراژ</label>
+              <input type="text" >
+            </div>
+            <div class="five wide field">
+              <label>نام  هتل</label>
+              <input id="hotel-name" type="text" >
+            </div>
+        </div>
+        <div class="fields">
+            <div class="three wide field" style="visibility: hidden">
+                <label style="visibility: hidden;">ss</label>
+             <div class="ui teal button">
+                 اضافه کردن
+             </div>
+            </div>
+
+            <div class="five wide field">
+              <label>شماره هتل</label>
+              <input id="hotel-phone" type="text" >
+            </div>
+            <div class="two wide field" style="visibility: hidden;">
+              <label>متراژ</label>
+              <input type="text" >
+            </div>
+            <div class="five wide field">
+              <label>ایمیل  هتل</label>
+              <input id="hotel-email" type="email" >
+            </div>
+        </div>
+        <div class="fields">
+            <div class="three wide field" style="visibility: hidden">
+                <label style="visibility: hidden;">ss</label>
+             <div class="ui teal button">
+                 اضافه کردن
+             </div>
+            </div>
+
+            <div class="five wide field">
+                <label>ستاره</label>
+               <div class="inline field">
+                    <div class="ui big star rating" id="star_hotel" data-rating="3" data-max-rating="5"></div>
+                 </div>
+            </div>
+            <div class="two wide field" style="visibility: hidden;">
+              <label>متراژ</label>
+              <input type="text" >
+            </div>
+
+            <div class="five wide field">
+              <label style="visibility: hidden;">State</label>
+              <select name="ostan" class="ui search right dropdown">
+                <option value="">استان</option>
+
+                <option value="30">آذربایجان شرقی</option>
+                <option value="0">آذربایجان غربی</option>
+                <option value="1"> اردبیل</option>
+                <option value="2">اصفهان</option>
+                <option value="3">البرز</option>
+                <option value="4">ایلام</option>
+                <option value="5">بوشهر</option>
+                <option value="6">تهران</option>
+                <option value="7">چهار محال و بختیاری</option>
+                <option value="8">خراسان جنوبی</option>
+                <option value="9">خراسان رضوی</option>
+                <option value="10">خراسان شمالی</option>
+                <option value="11">خوزستان</option>
+                <option value="12">زنجان</option>
+                <option value="13">سمنان</option>
+                <option value="14">سیستان و بلوچستان  </option>
+                <option value="15">فارس</option>
+                <option value="16">قزوین</option>
+                <option value="17"> قم</option>
+                <option value="18"> کردستان</option>
+                <option value="19"> کرمان</option>
+                <option value="20"> کرمانشاه</option>
+                <option value="21"> کهگیلویه و بویراحمد</option>
+                <option value="22">گلستان</option>
+                <option value="23"> گیلان</option>
+                <option value="24">لرستان</option>
+                <option value="25">مازندران</option>
+                <option value="26"> مرکزی</option>
+                <option value="27">هرمزگان</option>
+                <option value="28">همدان</option>
+                <option value="29">یزد</option>
+              </select>
+            </div>
+        </div>
+        <div class="eight fields">
+            <div class="inline field">
+                <label style="visibility: hidden;">ss</label>
+                    <div id="add-my-hotel" class="ui teal button" style="width: 120px;">
+    مرحله بعدی
+                    </div>
+                 </div>
+                <div class="inline field">
+                    <div class="ui checkbox">
+                      <label>استخر و سونا</label>
+                      <input type="checkbox" name="swimming_pool">
+
+                    </div>
+                 </div>
+                <div class="inline field">
+                    <div class="ui checkbox">
+                      <label>اینترنت</label>
+                      <input type="checkbox" name="internet">
+
+                    </div>
+                 </div>
+               <div class="inline field">
+                    <div class="ui checkbox">
+                      <label>صبحانه</label>
+                      <input type="checkbox" name="breakfast">
+
+                    </div>
+                 </div>
+                 <div class="inline field">
+                    <div class="ui checkbox">
+                      <label>ناهار</label>
+                      <input type="checkbox" name="lunch">
+
+                    </div>
+                 </div>
+                <div class="inline field">
+                    <div class="ui checkbox">
+                      <label>سالن ورزش</label>
+                      <input type="checkbox" name="gym">
+
+                    </div>
+                 </div>
+                 <div class="inline field">
+                    <div class="ui checkbox">
+                      <label>سالن همایش</label>
+                      <input type="checkbox" name="conference_room">
+                    </div>
+                 </div>
+            </div>
+    </form>
+  </div>
+<div class="ui bottom attached tab segment" data-tab="second" style="direction: rtl; height: 360px;">
+    <form class="ui form">
+        <div class="fields">
+            <div class="three wide field">
+                <label style="visibility: hidden;">ss</label>
+             <div id="add-my-room" class="ui teal button">
+                 اضافه کردن
+             </div>
+            </div>
+            <div class="one wide field">
+              <label>قیمت</label>
+              <input id="room-cost" type="text" >
+            </div>
+            <div class="one wide field">
+              <label>ظرفیت</label>
+              <input id="room-cap" type="text" >
+            </div>
+            <div class="three wide field">
+              <label>چشم‌انداز</label>
+              <input id="room-view" type="text" >
+            </div>
+            <div class="two wide field">
+              <label>تعداد</label>
+              <input id="room-number" type="text" >
+            </div>
+            <div class="two wide field">
+              <label>متراژ</label>
+              <input id="room-meter" type="text" >
+            </div>
+            <div class="three wide field">
+              <label>توع  اتاق</label>
+              <input id="room-type" type="text" >
+            </div>
+        </div>
+    </form>
+    <div class="ui page grid">
+        <div class="one wide column"></div>
+        <div class="fourteen wide column">
+        <div></div>
+           <table class="ui table">
+                <thead style="display: none;">
+                    <tr>
+                      <th>نوع اتاق</th>
+                      <th>چشم‌انداز</th>
+                      <th>ظرفیت</th>
+                      <th>قیمت</th>
+                    </tr>
+              </thead>
+          <tbody id="tbody">
+
+          </tbody>
+        </table>
+        </div>
+        <div class="one wide column"></div>
+      </div>
+  </div>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+    var id;
+    $("#add-my-hotel").click(function(){
+        name = $("#hotel-name").val()
+        addr = $("#hotel-addr").val()
+        email = $("#hotel-email").val()
+        phone = $("#hotel-phone").val()
+        ostan = $("select[name='ostan']").val()
+
+        hotel_rate = $("#star_hotel").rating('get rating');
+
+        breakfast = $("input[name='breakfast']").prop('checked')
+        lunch = $("input[name='lunch']").prop('checked')
+        gym = $("input[name='gym']").prop('checked')
+        conference_room = $("input[name='conference_room']").prop('checked')
+        internet = $("input[name='internet']").prop('checked')
+        swimming_pool = $("input[name='swimming_pool']").prop('checked')
+
+        var Data = "hotel_name=" + encodeURIComponent(name) +
+                     "&addr=" + encodeURIComponent(addr)+"&star="+ encodeURIComponent(hotel_rate)+
+                "&phone=" + encodeURIComponent(phone)+"&ostan="+ encodeURIComponent(ostan)+
+                "&breakfast=" + encodeURIComponent(breakfast)+"&lunch="+ encodeURIComponent(lunch)+
+                "&gym=" + encodeURIComponent(gym)+"&conference_room="+ encodeURIComponent(conference_room)+
+                "&internet=" + encodeURIComponent(internet)+"&swimming_pool="+ encodeURIComponent(swimming_pool)+
+                '&email='+encodeURIComponent(email);
+    $.ajax({
+    url: '/add_new_hotel/',
+    data: Data,
+    type: 'post'
+}).done(function(data){
+        id = data['id']
+       $("#room-info").click();
+        })
+    })
+    $("#add-my-room").click(function(){
+        room_view = $("#room-view").val()
+        room_number = $("#room-number").val()
+        room_cap = $("#room-cap").val()
+        room_meter = $("#room-meter").val()
+        room_type = $("#room-type").val()
+        room_cost = $("#room-cost").val()
+
+        var Data = "id=" + encodeURIComponent(id) +
+                     "&view=" + encodeURIComponent(room_view)+"&number="+ encodeURIComponent(room_number)+
+                "&capacity=" + encodeURIComponent(room_cap)+"&metraj="+ encodeURIComponent(room_meter)+
+                "&type="+ encodeURIComponent(room_type)+"&cost="+ encodeURIComponent(room_cost);
+        $.ajax({
+    url: '/add_new_room/',
+    data: Data,
+    type: 'post'
+    }).done(function(data){
+            $('thead').show()
+            $("#tbody").append("<tr><td>"+room_type+"</td><td>"+room_view+"</td><td>"+room_cap+"</td><td>"+room_cost+"</td></tr>");
+            room_view = $("#room-view").val("")
+            room_number = $("#room-number").val("")
+            room_cap = $("#room-cap").val("")
+            room_meter = $("#room-meter").val("")
+            room_type = $("#room-type").val("")
+            room_cost = $("#room-cost").val("")
+       })
+    })
+    </script>
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends 'base/main.html' %}
+
+{% load staticfiles %}
+{% block content %}
+
+<h1 style="text-align: right; padding-right: 50px"> صفحه مدیریت سیمرغ</h1>
+
+<div class="ui teal inverted menu" style="margin: 40px">
+  <a class="active item" id="hotels">
+    <i class="home icon"></i> هتل های موجود
+  </a>
+
+    <a class="item" id="new-hotels">
+    <i class="home icon"></i> هتل های جدید
+  </a>
+  <a class="item" id="comments">
+    <i class="mail icon"></i> نظرات
+  </a>
+  <a class="item" id="users">
+    <i class="user icon"></i> کاربران
+  </a>
+    <a class="item" id="payment">
+     <i class="user icon"></i> گزارش مالی سایت
+  </a>
+</div>
+
+
+   <table class="ui table" id="payment-view" style="margin-left: 100px; margin-right: 100px; width: 1200px; display: none">
+  <thead>
+    <tr>
+      <th>شماره هتل</th>
+      <th>مجموع درآمد حاصل از رزرو اتاقهای هتل</th>
+      <th>سود سیمرغ حاصل از این هتل</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for res in reserves %}
+
+    <tr>
+      <td>{{ res.hotel }}</td>
+      <td>{{ res.dcount }}</td>
+      <td>{{ benyamin.pop }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<br> <br>
+
+    <div class="ui divided list" id="hotel-view" style="display: none; padding: 50px" >
+    {% for hotel in hotels %}
+  <div class="item">
+  <a href="/hoteldelete/{{ hotel.id }}">
+    <div class="right floated compact ui button" id="delete_hotel">حذف</div>
+      </a>
+      <a href="/hotel/{{ hotel.id }}">
+    <div class="right floated compact ui button">مشاهده</div>
+      </a>
+    <div class="content">
+      <div class="header"> {{hotel.hotel_name}} </div>
+    </div>
+  </div>
+    {% endfor %}
+
+</div>
+
+
+<div class="ui divided list" id="new-hotel-view" style="display: none; padding: 50px" >
+    {% for hotel in notacceptedhotels %}
+  <div class="item">
+      <a href="/hotelaccept/{{ hotel.id }}">
+    <div class="right floated compact ui button">قبول</div>
+          </a>
+    <a href="/hoteldelete/{{ hotel.id }}">
+    <div class="right floated compact ui button">حذف</div>
+        </a>
+    <div class="content">
+      <div class="header">{{ hotel.hotel_name }}</div>
+    </div>
+  </div>
+    {% endfor %}
+    </div>
+
+
+
+<div class="ui divided list" id="comment-view" style="display: none; padding: 50px" >
+    {% for comment in comments %}
+  <div class="item">
+        <a href="/commentaccept/{{ comment.id }}">
+           <div class="right floated compact ui button">قبول</div>
+        </a>
+        <a href="/commentreject/{{ comment.id }}">
+            <div class="right floated compact ui button">رد</div>
+        </a>
+    <div class="content">
+      <div class="header"> {{ comment.user.username }}: {{ comment.body }} - {{ comment.hotel.hotel_name }} </div>
+    </div>
+  </div>
+ {% endfor %}
+</div>
+
+
+    <div class="ui divided list" id="user-view" style="display: none; padding: 50px" >
+    {% for user in users %}
+  <div class="item">
+      <a href="/userdelete/{{ user.id }}">
+        <div class="right floated compact ui button">حذف</div>
+      </a>
+      <a href="/usersee/{{ user.id }}">
+        <div class="right floated compact ui button">مشاهده</div>
+       </a>
+    <div class="content">
+      <div class="header"> {{ user.first_name }} - {{ user.last_name }} </div>
+    </div>
+  </div>
+ {% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+        <script>
+ $("#hotels").click(function(){
+        $("#comment-view").hide('slow')
+      $("#new-hotel-view").hide('slow')
+     $("#payment-view").hide('slow')
+     $("#hotel-view").show('slow')
+    });
+
+        $("#comments").click(function(){
+        $("#hotel-view").hide('slow')
+             $("#new-hotel-view").hide('slow')
+             $("#user-view").hide('slow')
+            $("#payment-view").hide('slow')
+     $("#comment-view").show('slow')
+    });
+
+          $("#new-hotels").click(function(){
+        $("#hotel-view").hide('slow')
+     $("#comment-view").hide('slow')
+               $("#user-view").hide('slow')
+              $("#payment-view").hide('slow')
+      $("#new-hotel-view").show('slow')
+
+    });
+
+        $("#users").click(function(){
+        $("#hotel-view").hide('slow')
+     $("#comment-view").hide('slow')
+      $("#new-hotel-view").hide('slow')
+      $("#payment-view").hide('slow')
+      $("#user-view").show('slow')
+
+    });
+
+         $("#payment").click(function(){
+        $("#comment-view").hide('slow')
+      $("#new-hotel-view").hide('slow')
+     $("#hotel-view").hide('slow')
+               $("#user-view").hide('slow')
+     $("#payment-view").show('slow')
+    });
+        </script>
+ {% endblock %}

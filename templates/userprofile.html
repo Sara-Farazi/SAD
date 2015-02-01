@@ -1,0 +1,404 @@
+{% extends 'base/main.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div class="ui vertical feature segment">
+    <div class="ui centered page grid">
+      <div class="fourteen wide column">
+        <div class="ui three column center aligned stackable grid">
+          <div class="column">
+
+
+          </div>
+          <div class="column">
+            <div class="ui icon header">
+              <img class="ui medium circular image" src="{% static 'images/user (2).png' %}">
+{{user.first_name}} {{user.last_name}}
+            </div>
+          </div>
+          <div class="column">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui centered page grid">
+      <div class="fourteen wide column">
+        <div class="ui three column center aligned stackable divided grid">
+          <div class="column" id="show-hotel">
+            <div class="ui icon header">
+              <img src="{% static 'images/apartments.jpg' %}">
+                 <br>
+                هتلهای من
+            </div>
+
+          </div>
+          <div class="column" id="show-activity">
+            <div class="ui icon header">
+              <img src="{% static 'images/pencil.jpg' %}">
+                <br>
+              فعالیتهای من
+            </div>
+
+          </div>
+          <div class="column" id="show-info">
+            <div class="ui icon header">
+              <i class="user icon"></i>
+              ویرایش اطلاعات
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+        <div style="height: 100px"></div>
+        <div class="ui centered page grid" id="my-activity" style="display: none;">
+      <div class="fourteen wide column">
+        <div class="ui three column center aligned stackable divided grid">
+          <div class="column">
+<div class="ui icon header">
+آخرین فعالیت
+            </div>
+              <br>
+              last log in: 17 April 2015
+
+          </div>
+          <div class="column">
+<div class="ui icon header">
+هتلهای رفته
+            </div>
+              {% for reserve in reserves %}
+              <br>
+ {{ reserve.hotel.hotel_name }}
+              <br>
+              <br>
+              {% endfor %}
+
+          </div>
+          <div class="column">
+            <div class="ui icon header">
+نظرات
+            </div>
+              {% for comment in comments %}
+              <br>
+        {{ comment.hotel.hotel_name }}: {{ comment.body }}
+         <br>
+         <br>
+              {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  <div class="ui centered page grid" id="my-hotels" style="display: none;">
+      <div class="fourteen wide column">
+           {% for hotel in hotels %}
+        <div class="ui three column center aligned stackable grid">
+            <div class="column">
+                <a href="/hotelBenefit/{{ hotel.id }}"> <div class="ui submit teal button" id="payment"> گزارش مالی </div></a>
+              </div>
+              <div class="column">
+              </div>
+          <div class="column">
+
+
+
+       <a href="/hotelmanager/{{hotel.id}}"><h3 id="hotel">{{hotel.hotel_name}}</h3></a>
+
+
+              <br>
+
+
+          </div>
+</div>
+        {% endfor %}
+       <a href="http://127.0.0.1:8000/addhotel"> <div class="ui submit teal button" id="hotel-add">اضافه کردن هتل</div></a>
+    </div>
+    </div>
+
+
+
+    <div class="ui centered page grid" style="display: none;" id="my-hotel">
+      <div class="sixteen wide column">
+        <div class="ui four column center aligned stackable grid">
+          <div class="column">
+            <div class="ui icon header">
+
+                        </div>
+            <div class="ui labeled input">
+              <div class="ui label">
+                  تعداد اتاقهای یک تخته
+              </div>
+              <input type="text" >
+            </div>
+                          <br>
+                          <br>
+                          <div class="ui labeled input">
+              <div class="ui label">
+                  قیمت اتاق یک تخته
+              </div>
+              <input type="text" >
+            </div>
+                      </div>
+              <div class="column">
+            <div class="ui icon header">
+
+                        </div>
+            <div class="ui labeled input">
+              <div class="ui label">
+                  تعداد اتاقهای دو تخته
+              </div>
+              <input type="text" >
+            </div>
+                          <br>
+                          <br>
+                          <div class="ui labeled input">
+              <div class="ui label">
+                  قیمت اتاقهای دو تخته
+              </div>
+              <input type="text" >
+            </div>
+                  <br>
+                  <br>
+
+                      </div>
+
+                      <div class="column">
+            <div class="ui icon header">
+
+                        </div>
+                          <br>
+                          <div class="ui labeled input">
+              <div class="ui label">
+            شماره تلفن
+              </div>
+              <input type="text">
+            </div>
+                          <br>
+                          <br>
+                          <div class="ui labeled input">
+              <div class="ui label">
+                  آدرس ایمیل
+              </div>
+              <input type="text" >
+            </div>
+                          <br>
+                          <br>
+             <div class="ui submit teal button">ذخیره تغییرات</div>
+                          <br>
+                          <div style="height: 30px"></div>
+                      </div>
+                      <div class="column">
+                        <div class="ui icon header">
+
+                        </div>
+                          <br>
+            <div class="ui labeled input">
+              <div class="ui label">
+                  نام هتل
+              </div>
+              <input type="text" >
+            </div>
+                     <br>
+                     <br>
+            <div class="ui labeled input">
+              <div class="ui label">
+                  آدرس هتل
+              </div>
+              <input type="text" >
+            </div>
+                     <br>
+                     <br>
+
+                      </div>
+                    </div>
+                  </div>
+    </div>
+
+
+    <div class="ui centered page grid" style="display: none;" id="my-info">
+      <div class="fourteen wide column">
+        <div class="ui three column center aligned stackable grid">
+            <div class="column">
+            <div class="ui icon header">
+
+            </div>
+            <form method="post">
+                {% csrf_token %}
+
+            <div class="ui labeled input">
+              <div class="ui label">
+                  نام
+              </div>
+              <input name="first_name" type="text" value="{{user.first_name}}" >
+            </div>
+
+                     <br>
+                     <br>
+
+            <div class="ui labeled input">
+              <div class="ui label">
+                  نام خانوادگی
+              </div>
+              <input name="last_name" type="text" value="{{user.last_name}}" >
+            </div>
+                    <br>
+                    <br>
+
+
+
+            <div class="ui labeled input">
+              <div class="ui label">
+                  نام کاربری
+              </div>
+              <input name="user_name" type="text" value="{{user.username}}" >
+            </div>
+                          <br>
+                          <br>
+
+
+
+
+
+            <div class="ui labeled input">
+              <div class="ui label">
+                  رمز عبور
+              </div>
+              <input type="password" >
+            </div>
+                          <br>
+                          <br>
+
+            <div class="ui labeled input">
+              <div class="ui label">
+                  ایمیل
+              </div>
+              <input name="email" type="text" value="{{user.email}}" >
+            </div>
+                          <br>
+                          <br>
+
+
+            <div class="ui labeled input">
+              <div class="ui label">
+                  شماره تلفن
+              </div>
+              <input name="phone" type="text" value="{{user.phone}}" >
+            </div>
+                        <br>
+                        <br>
+
+
+
+
+            <div class="column">
+            <div class="ui icon header">
+
+                        </div>
+                          <br>
+
+             <input class="ui teal button" type="submit" value="ذخیره تغییرات">
+                          <br>
+                          <div style="height: 30px"></div>
+            </div>
+            <div class="column">
+            <div class="ui icon header">
+
+            </div>
+                          <br>
+
+
+
+                     <br>
+                     <br>
+
+          </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+     <div class="ui modal" id="pay">
+  <i class="close icon"></i>
+
+  <div class="content">
+
+
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>نوع اتاق</th>
+      <th>تعداد اتاقهای رزرو شده</th>
+      <th>درآمد حاصل</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for res in reserve1%}
+    <tr>
+      <td>{{ res.type }}</td>
+      <td>{{ res.number }}</td>
+      <td>{{ res.payment }}</td>
+    </tr>
+  </tbody>
+    {% endfor %}
+</table>
+
+
+    </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block script %}
+        <script>
+    $("#show-activity").click(function(){
+        $("#my-hotels").hide('slow')
+        $("#my-info").hide('slow')
+        $("#my-activity").show('slow')
+        $("#my-hotel").hide('slow')
+    });
+
+    $("#show-hotel").click(function(){
+        $("#my-activity").hide('slow')
+        $("#my-info").hide('slow')
+        $("#my-hotels").show('slow')
+        $("#hotel").show('slow')
+         $("#hotel-add").show('slow')
+        $("#my-hotel").hide('slow')
+
+
+    });
+
+     $("#show-info").click(function(){
+        $("#my-hotels").hide('slow')
+        $("#my-activity").hide('slow')
+        $("#my-info").show('slow')
+        $("#my-hotel").hide('slow')
+    });
+
+    $("#hotel").click(function(){
+        $("#hotel").hide('slow')
+        $("#hotel-add").hide('slow')
+        $("#my-hotel").show('slow')
+    });
+
+    $("#add_hotel").click(function(){
+    $('.modal').modal('show');})
+
+
+    </script>
+{% endblock %}

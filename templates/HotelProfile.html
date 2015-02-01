@@ -1,0 +1,257 @@
+
+{% extends 'base/main.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+  <div class="ui  vertical segment" style="background: #ffffff" >
+    <div class="ui very relaxed stackable page grid" style="background: #ffffff">
+
+
+
+      <div class="row">
+        <div class="six wide column" >
+            <img src="{% static 'images/luxury.jpg' %}">
+
+        </div>
+        <div class="ten wide column" >
+          <h3 class="ui inverted header" align="right" style="font-size: 35px; color: #000000" >{{hotel.hotel_name}}</h3>
+             <div class="ui massive star rating"  data-rating={{ hotel.hotel_rate }} data-max-rating="5" id="disable star"></div>
+            <div style="height:10px"></div>
+             <h3 class="ui inverted header" align = "right" style="color: #000000">توضیحات</h3>
+             <div class="ui inverted section divider"></div>
+          <p align = "right" style="color: #000000">هتل داریوش در جزیره کیش در جنوب ایران از زیبا ترین و مجلل ترین هتل های این منطفه میباشد. این هتل تمام امکانات تفریحی و فرهنگی و گردشگردی در یکی از زیبا ترین مناطق ایران را برای شما فراهم می آورد.</p>
+
+          <div class="ui basic  black button button" id="reserve">
+              <a href="/hotelreserve/{{ hotel.id }}">
+
+            <div class="visible black content" style="color: #000000" >رزرو اتاق</div>
+                </a>
+           <!-- <div class="hidden black content"><i class="right black arrow icon"></i></div>-->
+          </div>
+            <h3 class="ui inverted header" align = "right" style="color: #000000">امکانات هتل</h3>
+          <div class="ui inverted section divider"></div>
+         <!-- <h3 class="ui inverted header" align = "right">امکانات هتل</h3>-->
+
+            <div class="ui inverted animated selection list">
+            <div class="item">
+                {% if hotel.swimming_pool %}
+                   <i class="large green checkmark icon"></i>
+                {% else %}
+                    <i class="large red icon close"></i>
+                {% endif %}
+
+              <div class="right floated" style="color: #000000">استخر</div>
+            </div>
+            <div class="item">
+                {%  if hotel.gym %}
+                     <i class="large green checkmark icon"></i>
+                {% else %}
+                    <i class="large red icon close"></i>
+                {% endif %}
+              <div class="right floated" style="color: #000000">سالن ورزشی</div>
+            </div>
+            <div class="item">
+                {% if hotel.breakfast %}
+                 <i class="large green checkmark icon"></i>
+                {% else %}
+                     <i class="large red icon close"></i>
+                {% endif %}
+              <div class="right floated" style="color: #000000">صبحانه</div>
+            </div>
+             <div class="item">
+                 {% if hotel.lunch %}
+              <i class="large green checkmark icon"></i>
+                 {% else %}
+                 <i class="large red icon close"></i>
+                 {% endif %}
+
+              <div class="right floated" style="color: #000000">ناهار</div>
+            </div>
+
+            <div class="item">
+                {% if hotel.conference_room %}
+              <i class="large green checkmark icon"></i>
+                {% else %}
+                 <i class="large red icon close"></i>
+                {% endif %}
+              <div class="right floated" style="color: #000000">سالن همایش</div>
+            </div>
+                <div class="item">
+                    {% if hotel.internet %}
+              <i class="large green checkmark icon"></i>
+                    {% else %}
+                     <i class="large red icon close"></i>
+                    {% endif %}
+              <div class="right floated" style="color: #000000">وایرلس</div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+<div style="height: 50px"></div>
+ <h3 class="ui inverted header" align = "right" style="color: #000000;margin-right: 130px">انواع اتاق</h3>
+     <div class="ui inverted section divider" style="margin-left: 530px;margin-right: 130px" ></div>
+
+
+
+{% for type in type %}
+<div class="ui one column grid" style="margin-left: 500px; margin-right: 130px">
+    
+    <div class="column" style="width: 200px; height: 200px">
+      <div class="ui segment" >
+          <div align="center">
+              {{ type }}
+          </div>
+        <img src="{% static 'images/pencil.jpg' %}" class="ui fluid image" style="width: 150px; height: 150px">
+
+      </div>
+    </div>
+  </div>
+<!-- <div class="ui inverted vertical segment" dir="rtl"> -->
+{% endfor %}
+
+<h3 class="ui inverted header" align = "right" style="color: #000000;margin-right: 130px">موقعیت هتل</h3>
+     <div class="ui inverted section divider" style="margin-left: 530px;margin-right: 130px" ></div>
+
+<div id="googleMap" style="height:380px; margin-left: 130px; margin-right: 130px"></div>
+
+
+
+
+
+ <h3 class="ui inverted header" align = "right" style="color: #000000;margin-right: 130px">نظرات</h3>
+     <div class="ui inverted section divider" style="margin-left: 530px;margin-right: 130px" ></div>
+
+
+
+            <div class="ui comments" style="width:600px;float: right;margin-right: 130px"  >
+                {% for cm in comment %}
+              <div class="comment" style="float:right; padding: 0px; margin: 0px">
+                <a class="avatar" style="float: right">
+                  <img src="../../static/images/user (2).png">
+                </a>
+                <div class="content" style="float: right">
+                  <a class="author">
+                      {{cm.user.username}}
+                  </a>
+                  <div class="metadata">
+                    <div class="date">
+                        {{cm.date}}
+                    </div>
+                  </div>
+                  <div class="text">
+                    {{cm.body}}
+                  </div>
+
+                </div>
+              </div>
+                {% endfor %}
+
+                {% if user.is_authenticated and is_able_comment %}
+
+              <form class="ui reply form">
+                <div class="field" >
+                  <textarea id="cm-body"></textarea>
+                </div>
+                <div id="cm-message" class="ui green message" style="display: none;">
+                    نظر شما پس از تایید، نمایش داده می‌شود.
+                </div>
+                  <div style="float: right" id="your_opinion">:تعداد ستاره های این هتل از نظر شما</div>
+                  <div class="ui large star rating"  data-rating={{ hotel.given_rate }} data-max-rating="5" style="float: right" id="stars_your_opinion"></div>
+                  <br>
+                  <br>
+
+                <div id="submit-cm" class="ui button teal labeled icon" style="float:right" >
+                  <i class="icon edit"></i>
+                    ثبت نظر
+                </div>
+              </form>
+                {% endif %}
+            </div>
+
+
+
+
+
+
+
+    <div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    رزرو اتاق
+  </div>
+  <div class="content">
+       <div class="two fields">
+    <div class="field">
+              <div class="two fields">
+                <div class="field">
+                    <label style="visibility: hidden">تا</label>
+                  <input type="text" name="first-name" placeholder="تاریخ خروج" style="direction: rtl;">
+                </div>
+                <div class="field">
+                    <label style="visibility: hidden;">از</label>
+                  <input type="text" name="last-name" placeholder="تاریخ ورود" style="direction: rtl;">
+                </div>
+              </div>
+            </div>
+           </div>
+
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}
+{% block script %}
+
+<script type="text/javascript">
+    $("#submit-cm").click(function(){
+    var hotel_id = "{{hotel.id}}"
+    var cm_body = $("#cm-body").val()
+    var star = $("#stars_your_opinion").rating('get rating');
+
+    var Data = "cm_body=" + encodeURIComponent(cm_body) +
+                     "&hotel_id=" + encodeURIComponent(hotel_id)+"&star="+ encodeURIComponent(star);
+    $.ajax({
+    url: '/comment/',
+    data: Data,
+    type: 'post'
+}).done(function(data){
+        $("#submit-cm").fadeOut('slow');
+        $("#cm-body").hide('slow');
+        $("#stars_your_opinion").hide('slow');
+        $("#your_opinion").hide('slow');
+        $("#cm-message").fadeIn('slow');
+        })
+})
+$('.ui.massive.star.rating')
+  .rating('disable')
+;
+</script>
+
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(35.715298,51.404343),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
+
+{% endblock %}
